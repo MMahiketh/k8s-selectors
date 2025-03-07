@@ -24,4 +24,4 @@ spec:
                 operator: In
                 values:
                 - caching
-            topologyKey: topology.kubernetes.io/zone
+            topologyKey: kubernetes.io/hostname
