@@ -20,6 +20,6 @@ spec:
             operator: In
             values:
             - GPU 
-containers:
+  containers:
   - name: nginx
     image: nginx
