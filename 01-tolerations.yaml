@@ -8,6 +8,6 @@ spec:
     image: nginx
   tolerations:
   - key: hardware
-    operation: Equal
+    operator: Equal
     value: GPU
     effect: NoSchedule
