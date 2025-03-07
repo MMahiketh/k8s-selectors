@@ -7,7 +7,7 @@ spec:
     nodeAffinity:
       preferredDuringSchedulingIgnoredDuringExecution:
       - weight: 1
-        prefference:
+        preferrence:
           matchExpressions:
           - key: hardware
             operator: In
