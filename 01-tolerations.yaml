@@ -3,6 +3,8 @@ apiVersion: v1
 metadata:
   name: nginx
 spec:
+  nodeSelector:
+    hardware: GPU
   containers:
   - name: nginx
     image: nginx
