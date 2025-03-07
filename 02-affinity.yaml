@@ -1,0 +1,22 @@
+kind: Pod
+apiVersion: v1
+metadata: 
+  name: affinity
+spec:
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpression:
+          - key: hardware
+            operator: In
+            values: 
+            - GPU
+  containers:
+  - name: nginx
+    image: nginx
+  tolerations:
+  - key: hardware
+    operator: Equal
+    value: GPU
+    effect: NoSchedule
