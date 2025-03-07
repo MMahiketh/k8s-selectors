@@ -1,0 +1,27 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: cache
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      purpose: caching
+  template:
+    metadata:
+      labels:
+        purpose: caching
+    spec:
+      containers:
+      - name: caching-server
+        image: nginx
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: purpose
+                operator: In
+                values:
+                - caching
+            topologyKey: topology.kubernetes.io/zone
