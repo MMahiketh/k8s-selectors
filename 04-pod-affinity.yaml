@@ -1,0 +1,10 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: pod-1
+  labels:
+    purpose: Affinity
+spec:
+  containers:
+  - name: nginx
+    image: nginx
