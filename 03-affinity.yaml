@@ -13,6 +13,13 @@ spec:
             operator: In
             values:
             - CPU
-  containers:
+      - weight: 2
+        preference:
+          matchExpressions:
+          - key: hardware
+            operator: In
+            values:
+            - GPU 
+containers:
   - name: nginx
     image: nginx
