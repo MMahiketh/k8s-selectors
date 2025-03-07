@@ -25,3 +25,40 @@ spec:
                 values:
                 - caching
             topologyKey: kubernetes.io/hostname
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      purpose: backend
+  template:
+    metadata:
+      labels:
+        purpose: backend
+    spec:
+      affinity:
+        podAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: purpose
+                operator: In
+                values:
+                - caching
+            topologyKey: kubernetes.io/hostname
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: purpose
+                operator: In
+                values:
+                - backend
+            topologyKey: kubernetes.io/hostname
+      containers:
+      - name: backend
+        image: nginx
