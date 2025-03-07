@@ -7,10 +7,10 @@ spec:
     nodeAffinity:
       requiredDuringSchedulingIgnoredDuringExecution:
         nodeSelectorTerms:
-        - matchExpression:
+        - matchExpressions:
           - key: hardware
             operator: In
-            values: 
+            values:
             - GPU
   containers:
   - name: nginx
