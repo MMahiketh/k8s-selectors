@@ -1,0 +1,18 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: affinity_3
+spec:
+  affinity:
+    nodeAffinity:
+      prefferedDuringSchedulingIgnoredDuringExecution:
+      - weight: 1
+        prefference:
+          matchExpressions:
+          - key: hardware
+            operator: In
+            values:
+            - CPU
+  containers:
+  - name: nginx
+    image: nginx
