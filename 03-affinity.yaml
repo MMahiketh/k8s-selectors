@@ -1,7 +1,7 @@
 kind: Pod
 apiVersion: v1
 metadata:
-  name: affinity_3
+  name: affinity-3
 spec:
   affinity:
     nodeAffinity:
